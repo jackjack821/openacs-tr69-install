@@ -1,0 +1,22 @@
+1. sudo apt install openjdk-8-jdk
+
+2.sudo update-alternatives --config java 选择jdk8
+
+3. 修改mysql root密码
+update mysql.user set authentication_string=PASSWORD('123456') where user='root';
+flush privileges;
+
+4.修改localhost访问mysql
+grant all privileges on *.* to root@localhost identified by '123456';
+flush privileges;
+
+5.修复No directory, logging in with HOME=/ 错误，在启动mysql  
+sudo usermod -d /var/lib/mysql/ mysql 
+
+6. Access denied for user root@localhost错误解决方法
+sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf， section  [mysqld] 加入 skip-grant-tables　， /etc/init.d/mysql restart
+
+7. openacs启动的时候出现时间的问题，Invalid default value for 'lastcontact'错误
+
+sql_mode=ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+
