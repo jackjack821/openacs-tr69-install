@@ -16,7 +16,7 @@ sudo usermod -d /var/lib/mysql/ mysql
 6. Access denied for user root@localhost错误解决方法
 sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf， section  [mysqld] 加入 skip-grant-tables　， /etc/init.d/mysql restart
 
-7. openacs启动的时候出现时间的问题，Invalid default value for 'lastcontact'错误
+7. openacs启动的时候出现时间的问题，Invalid default value for 'lastcontact'错误,sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf添加
 
 sql_mode=ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
 
