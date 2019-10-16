@@ -4,7 +4,8 @@ PACKAGE_DIR=./package
 
 echo "install JDK ..."
 if ! command -v java > /dev/null; then
-    sudo apt-get install -y default-jdk
+    #sudo apt-get install -y default-jdk
+    sodu apt-get install -y openjdk-8-jdk
 fi
 
 echo "install ant ..."
